@@ -38,30 +38,29 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 ## Descargar el Repositorio
 ```bash
-git clone https://github.com/Navarrojuan212/Cloud-Automations.git
+git clone https://github.com/Navarrojuan212/WordPress.git
 ```
 ### Estructura del Repositorio
-
 ```bash
-tree Cloud-Automations -I .git
+cd WordPress
+```
+```bash
+tree -I .git -a 
 ```
 Debería obtener una salida como esta
-```bash                                          
-Cloud-Automations
+```bash                                                                                                                         
+├── docker-compose.yml
+├── Dockerfile
 ├── .gitignore
 ├── pu.sh
-├── README.md
-└── WordPress
-    ├── docker-compose.yml
-    ├── Dockerfile
-    └── README.md
+└── README.md
+
+1 directory, 5 files
+
 ```
 
 # Desplegar WordPress en Docker
-- Acceda a la carpeta de Wordpress y ejecute el comando
-```bash
-cd Cloud-Automations/WordPress
-```
+- Dentro del repositorio Wordpress ejecute lo siguiente:
 
 >[!IMPORTANT]
 >Por favor, asegúrate de crear un archivo `.env` en la siguiente ruta :arrow_right: `Cloud-Automations/WordPress/.env`
@@ -70,10 +69,14 @@ cd Cloud-Automations/WordPress
 > ```
 > Este archivo debe contener las variables de entorno necesarias para que el proyecto funcione correctamente. Sin este archivo, la aplicación no funcionará como se espera.
 > ```bash
-> WORDPRESS_DB_HOST=IP
-> WORDPRESS_DB_USER=user
-> WORDPRESS_DB_PASSWORD=your_secure_password
+>WORDPRESS_DB_HOST=db
+> WORDPRESS_DB_USER=wordpress
+> WORDPRESS_DB_PASSWORD=wordpress
 > WORDPRESS_DB_NAME=wordpress
+> MYSQL_ROOT_PASSWORD=root_password
+> MYSQL_DATABASE=wordpress
+> MYSQL_USER=wordpress
+> MYSQL_PASSWORD=wordpress
 
 >[!CAUTION]
 >Asegúrate de que las variables estén configuradas correctamente según tu entorno local o de producción.
